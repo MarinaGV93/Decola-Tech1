@@ -2,6 +2,8 @@
 
 namespace Instrucoes{
     class Program{
+        public static string? TaskExtensions { get; private set; }
+
         static void Declaracoes(){
             int a;
             int b = 2, c = 3;
@@ -129,7 +131,7 @@ namespace Instrucoes{
             }
             //Sempre cai aqui
             finally{
-                Console.WriteLine("Até breve.")
+                Console.WriteLine("Até breve.");
             }
         }
         static void InstrucaoUsing(string[] argum){
