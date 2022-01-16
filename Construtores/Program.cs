@@ -7,6 +7,12 @@ namespace Construtores
     {
         static void Main(string[] args){
             System.Console.WriteLine("-----------------------");
+            System.Console.WriteLine("Modificadores - Constante:");
+            const double pi = 3.14;
+            System.Console.WriteLine(pi);
+            // pi = 0;
+
+            System.Console.WriteLine("-----------------------");
             System.Console.WriteLine("Get e Set:");
             Data data = new Data();
             // data.SetMes(2);
