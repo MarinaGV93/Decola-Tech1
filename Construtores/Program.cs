@@ -5,7 +5,18 @@ namespace Construtores
 {
     class Program
     {
+        public delegate void Operacao(int x, int y);
         static void Main(string[] args){
+            System.Console.WriteLine("-----------------------");
+            System.Console.WriteLine("Delegate:");
+            Operacao op = Calculadora.Somar;
+            // Operacao op = new Operacao(Calculadora.Somar);
+            // op.Invoke(10,10);
+            // op(10,10);
+            System.Console.WriteLine("Mult Cast Delegate:");
+            op += Calculadora.Sub;
+            op.Invoke(10,10);
+
             System.Console.WriteLine("-----------------------");
             System.Console.WriteLine("Modificadores - Constante:");
             const double pi = 3.14;
