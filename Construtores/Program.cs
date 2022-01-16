@@ -8,6 +8,11 @@ namespace Construtores
         public delegate void Operacao(int x, int y);
         static void Main(string[] args){
             System.Console.WriteLine("-----------------------");
+            System.Console.WriteLine("Evento:");
+            Matematica mat = new Matematica (10,20);
+            mat.Somar();
+
+            System.Console.WriteLine("-----------------------");
             System.Console.WriteLine("Delegate:");
             Operacao op = Calculadora.Somar;
             // Operacao op = new Operacao(Calculadora.Somar);
