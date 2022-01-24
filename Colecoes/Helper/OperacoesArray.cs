@@ -23,7 +23,7 @@ namespace Colecoes.Helper
         }
 
         //Metodos em comum para os Arrays 
-        public void ImprimirAArray(int[] array)
+        public void ImprimirArray(int[] array)
         {
             //Imprimir em 1 linha
             var linha = string.Join(", ", array);
@@ -40,6 +40,17 @@ namespace Colecoes.Helper
         {
             //Chamar a classe array
             Array.Sort(array);
+        }
+
+        public void Copiar(ref int[] array, ref int[] arrayDestino)
+        {
+            Array.Copy(array, arrayDestino, array.Length); //Copiar tudo
+        }
+
+        //Ver se existe 
+        public bool Existe(int[] array, int valor) //valor = se é o elemento que existe
+        {
+            return Array.Exists(array, elemento => elemento == valor); //elemento = expressao que quer que retorne
         }
     }
 }
