@@ -10,13 +10,13 @@
             arrayInteiros[2] = 30; //3
 
             //Imprimir
-            System.Console.WriteLine("Com FOR");
+            System.Console.WriteLine("Com FOR: ");
             for (int i = 0; i  < arrayInteiros.Length; i++)
             {
                 System.Console.WriteLine(arrayInteiros[i]);
             }
 
-            System.Console.WriteLine("Com FOREACH");
+            System.Console.WriteLine("Com FOREACH: ");
             foreach (int item in arrayInteiros)
             {
                 System.Console.WriteLine(item);
