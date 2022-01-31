@@ -6,6 +6,44 @@ namespace Colecoes{
     class Program{
         static void Main(string[] args){
 
+            //Implemtando uma pilha
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine("Implemtando uma pilha:");
+            System.Console.WriteLine();
+            Stack<string> pilha = new Stack<string>();
+            pilha.Push("Livro");
+            pilha.Push("Revista");
+            pilha.Push("Jornal");
+                //Ler a pilha e removendo
+                System.Console.WriteLine($"O que tem para ler: {pilha.Count}");
+                System.Console.WriteLine();
+            while (pilha.Count > 0)
+            {
+                System.Console.WriteLine($"O próximo a ler: {pilha.Peek()}");
+                System.Console.WriteLine($"{pilha.Pop()} lido");
+            }
+            System.Console.WriteLine();
+            System.Console.WriteLine($"O que tem para ler: {pilha.Count}");
+
+            //Implemtando uma fila
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine("Implemtando uma fila:");
+            System.Console.WriteLine();
+            Queue<string> fila = new Queue<string>();
+            fila.Enqueue("Márcia");
+            fila.Enqueue("Maria");
+            fila.Enqueue("Marcela");
+                //Ler a fila e removendo
+            System.Console.WriteLine($"Pessoas na fila: {fila.Count}");
+            System.Console.WriteLine();
+            while (fila.Count > 0)
+            {
+                System.Console.WriteLine($"Vez de: {fila.Peek()}");//Retorna o que está no começo da fila sem remover
+                System.Console.WriteLine($"{fila.Dequeue()} atendida");
+            }
+            System.Console.WriteLine();
+            System.Console.WriteLine($"Pessoas na fila: {fila.Count}");
+
             //Declarando uma lista
             OperacoesLista opLista = new OperacoesLista();
             List<string> estado = new List<string>{"BA"};
@@ -38,7 +76,7 @@ namespace Colecoes{
             System.Console.WriteLine("---------------------------");
             System.Console.WriteLine("Adicionar elemento em um índice:");
             estado.Insert(1, "BH");
-            opLista.ImprimirListaString(estado);
+            opLista.ImprimirListaString(estado); 
 
             //Ordenação
             OperacoesArray op = new OperacoesArray();
