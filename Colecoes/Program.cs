@@ -1,10 +1,86 @@
-﻿using System;
+﻿using System.Linq;
+using System;
 using Colecoes.Helper;
 using System.Collections.Generic;
 
 namespace Colecoes{
     class Program{
         static void Main(string[] args){
+ 
+            //Obtendo e ordenando valores com LINQ
+            int[] arrayNumeros = new int[7] {100, 1, 4, 0, 8, 19, 19};
+                //Somente os numeros pares
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine("Obtendo e ordenando valores com LINQ: ");
+            var numeroParesQuery = 
+                from num in arrayNumeros
+                where num % 2 == 0
+                orderby num
+                select num;
+            System.Console.WriteLine("Números pares query: " + string.Join(", ", numeroParesQuery));
+            var numeroParesMetodos = arrayNumeros.Where(x => x % 2 == 0).OrderBy(x => x).ToList();
+            System.Console.WriteLine("Números pares método: " + string.Join(", ", numeroParesMetodos));
+                //Valores mínimo, máximo e médio
+            var minimo = arrayNumeros.Min();
+            var maximo = arrayNumeros.Max();
+            var medio = arrayNumeros.Average();
+
+            System.Console.WriteLine($"Mínimo: {minimo}");
+            System.Console.WriteLine($"Máximo: {maximo}");
+            System.Console.WriteLine($"Médio: {medio}");
+                //Sum e Distinct
+            var soma = arrayNumeros.Sum();
+            var arrayUnicos = arrayNumeros.Distinct().ToArray();
+
+            System.Console.WriteLine($"Soma: {soma}");
+            System.Console.WriteLine($"Array original: {string.Join(", ", arrayNumeros)}");
+            System.Console.WriteLine($"Array distinto: {string.Join(", ", arrayUnicos)}");
+
+            //Dicionário
+            Dictionary<string, string> estados = new Dictionary<string, string>();
+            estados.Add("SP", "São Paulo");
+            estados.Add("RJ", "Rio de Janeiro");
+            estados.Add("MG", "Minas Gerais");
+                //Percorrer
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine("Dicionário: ");
+            foreach (KeyValuePair<string, string> item in estados)
+            {
+                System.Console.WriteLine($"Chave: {item.Key}, Valor: {item.Value}"); //Obter a chave. Obter o valor
+            }
+                //Acessando um valor
+            string valorProcurado1 = "SP";
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine();
+            System.Console.WriteLine($"Acessando um valor: {estados[valorProcurado1]}");
+                //Atualizando um valor
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine("Atualizando um valor: ");
+            System.Console.WriteLine();
+            System.Console.WriteLine($"Valor original: {estados[valorProcurado1]}");
+            estados[valorProcurado1] = "BA - teste atualizado";
+            System.Console.WriteLine($"Valor atualizado: {estados[valorProcurado1]}");
+                 //Removendo um valor
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine();
+            System.Console.WriteLine($"Removendo o valor: {valorProcurado1}");
+            estados.Remove(valorProcurado1);
+            foreach (KeyValuePair<string, string> item  in estados)
+            {
+                System.Console.WriteLine($"Chave: {item.Key}, Valor: {item.Value}"); //Obter a chave. Obter o valor
+            }
+                //Acessando de modo seguro
+            System.Console.WriteLine("---------------------------");
+            System.Console.WriteLine();
+            System.Console.WriteLine("Acessando de modo seguro: ");
+            // var teste = estados["SC"];
+            if (estados.TryGetValue(valorProcurado1, out string estadoEncontrado))
+            {
+                System.Console.WriteLine(estadoEncontrado);
+            }else
+            {
+                System.Console.WriteLine($"Chave {valorProcurado1} não existe no dicionário");
+            }
 
             //Implemtando uma pilha
             System.Console.WriteLine("---------------------------");
@@ -60,8 +136,7 @@ namespace Colecoes{
                 //Classe OperacoesLista
             opLista.ImprimirListaString(estado);
 
-            //Removendo elemento da lista
-            System.Console.WriteLine("---------------------------");
+                //Removendo elemento da lista
             System.Console.WriteLine("Removendo elemento da lista:");
             estado.Remove("MA");
             opLista.ImprimirListaString(estado);
